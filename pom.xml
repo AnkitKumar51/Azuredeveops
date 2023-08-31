@@ -115,6 +115,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <propertyName>chrome</propertyName>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
