@@ -19,7 +19,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: '*TEST*.xml'
+      testResultsFiles: 'testng.xml'
       mergeTestResults: true
 
 - task: PublishBuildArtifacts@1
