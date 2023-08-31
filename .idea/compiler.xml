@@ -7,8 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="HybridFrameWork" />
+        <module name="AzureDeveopsSeleniumJava" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="HybridFrameWork" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
