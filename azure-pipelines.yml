@@ -8,7 +8,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: '-e install'
+    goals: 'install'
     mavenOptions: '-Xmx3072m -Dheadless'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
