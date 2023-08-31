@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.17'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: './testng.xml'
+    
+- task: PublishTestResults@2
+  inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: './testng.xml'
+      mergeTestResults: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+      ArtifactName: 'Extent-Reports'
+      PathToPublish: './target/Extent-Reports/'
