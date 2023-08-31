@@ -14,35 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-<!--    <build>-->
-<!--        &lt;!&ndash; Source directory configuration &ndash;&gt;-->
-<!--        <sourceDirectory>src</sourceDirectory>-->
-<!--        <plugins>-->
-<!--            &lt;!&ndash; Following plugin executes the testng tests &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>2.14.1</version>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash; Suite testng xml file to consider for test execution &ndash;&gt;-->
-<!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>suites-test-testng.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash; Compiler plugin configures the java version to be usedfor compiling-->
-<!--                the code &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <source>1.7</source>-->
-<!--                    <target>1.7</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
-
     <dependencies>
 
         <dependency>
@@ -133,5 +104,20 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
