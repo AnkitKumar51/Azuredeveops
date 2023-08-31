@@ -5,14 +5,14 @@
     </listeners>
 
     <test name="TealPD Login Logout Tests">
-        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserName" value="headlessChrome"/>
         <classes>
             <class name="Tests.TC01_LoginPage"/>
         </classes>
     </test>
 
     <test name="TealPD Logistics Tests">
-        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserName" value="headlessChrome"/>
         <classes>
             <class name="Tests.TC02_LogisticWareHouseInventoryManagementPage"/>
         </classes>
