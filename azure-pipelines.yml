@@ -16,13 +16,13 @@ steps:
     publishJUnitResults: true
     testResultsFiles: './testng.xml'
     
-# - task: PublishTestResults@2
-#   inputs:
-#       testResultsFormat: 'JUnit'
-#       testResultsFiles: '**/TEST*.xml'
-#       mergeTestResults: true
+- task: PublishTestResults@2
+  inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/TEST*.xml'
+      mergeTestResults: true
 
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#       ArtifactName: 'Extent-Reports'
-#       PathToPublish: './target/Extent-Reports/'
+- task: PublishBuildArtifacts@1
+  inputs:
+      ArtifactName: 'Extent-Reports'
+      PathToPublish: './target/Extent-Reports/'
