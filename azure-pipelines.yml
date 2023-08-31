@@ -14,12 +14,12 @@ steps:
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: 'testng.xml'
+    testResultsFiles: './testng.xml'
     
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: 'testng.xml'
+      testResultsFiles: './testng.xml'
       mergeTestResults: true
 
 - task: PublishBuildArtifacts@1
