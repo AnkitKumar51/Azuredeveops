@@ -52,6 +52,7 @@ public class Listeners extends baseClass implements ITestListener, ISuiteListene
         Object Listeners = result.getInstance();
         WebDriver webDriver = getDrivers();
         if (webDriver != null) {
+            System.setProperty("java.awt.headless", "true");
             ExtentReport.test.fail(MarkupHelper.createLabel(String.valueOf(result.getThrowable()), ExtentColor.RED));
             ExtentReport.test.fail(result.getMethod().getMethodName() + " is failed", MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
             ExtentLogger.pass(webDriver.getCurrentUrl());
