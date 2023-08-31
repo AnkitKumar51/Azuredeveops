@@ -9,7 +9,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: '-e install'
-    mavenOptions: '-Xmx3072m'
+    mavenOptions: '-Xmx3072m -Dheadless'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
