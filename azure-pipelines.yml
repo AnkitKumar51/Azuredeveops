@@ -14,15 +14,15 @@ steps:
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/TEST*.xml'
+    testResultsFiles: './testng.xml'
     
-- task: PublishTestResults@2
-  inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: '**/TEST*.xml'
-      mergeTestResults: true
+# - task: PublishTestResults@2
+#   inputs:
+#       testResultsFormat: 'JUnit'
+#       testResultsFiles: '**/TEST*.xml'
+#       mergeTestResults: true
 
-- task: PublishBuildArtifacts@1
-  inputs:
-      ArtifactName: 'Extent-Reports'
-      PathToPublish: './target/Extent-Reports/'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#       ArtifactName: 'Extent-Reports'
+#       PathToPublish: './target/Extent-Reports/'
