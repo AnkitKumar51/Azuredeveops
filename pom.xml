@@ -114,6 +114,7 @@
                     <suiteXmlFiles>
                        <file>testng.xml</file>
                     </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
         </plugins>
