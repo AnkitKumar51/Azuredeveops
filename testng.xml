@@ -25,31 +25,31 @@
         </classes>
     </test>
 
-<!--    <test name="TealPD Add Contacts Page Tests">-->
-<!--        <parameter name="browserName" value="chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="Tests.TC04_AddContactsPage"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="TealPD Add Contacts Page Tests">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="Tests.TC04_AddContactsPage"/>
+        </classes>
+    </test>
 
-<!--    <test name="TealPD Items Page Tests">-->
-<!--        <parameter name="browserName" value="chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="Tests.TC05_ItemsPage"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="TealPD Items Page Tests">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="Tests.TC05_ItemsPage"/>
+        </classes>
+    </test>
 
-<!--    <test name="TealPD QP Page Tests">-->
-<!--        <parameter name="browserName" value="chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="Tests.TC06_QpPage"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="TealPD QP Page Tests">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="Tests.TC06_QpPage"/>
+        </classes>
+    </test>
 
-<!--    <test name="TealPD Skid Page Tests">-->
-<!--        <parameter name="browserName" value="chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="Tests.TC07_SkidPage"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="TealPD Skid Page Tests">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="Tests.TC07_SkidPage"/>
+        </classes>
+    </test>
 </suite>
