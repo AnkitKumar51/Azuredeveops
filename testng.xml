@@ -3,7 +3,6 @@
     <listeners>
         <listener class-name="Configuration.Listeners"/>
     </listeners>
-    <parameter name="testng.testng.reporter.directory" value="./target/Extent-Reports/"/>
 
     <test name="TealPD Login Logout Tests">
         <parameter name="browserName" value="chrome"/>
