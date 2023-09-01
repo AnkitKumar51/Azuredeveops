@@ -149,7 +149,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: '$(System.DefaultWorkingDirectory)/**/test-*.xml'
+      testResultsFiles: '**/test-*.xml'
       mergeTestResults: true
 
 - task: PublishBuildArtifacts@1
