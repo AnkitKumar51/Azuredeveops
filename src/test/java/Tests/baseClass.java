@@ -55,7 +55,8 @@ public class baseClass {
         } else {
             throw new Exception("Invalid browser");
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(5);
     }
 
     public static WebDriver getDrivers() {
