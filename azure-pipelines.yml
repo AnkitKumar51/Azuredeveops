@@ -134,8 +134,8 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'package'
-    mavenOptions: '-Xmx3072m -Dheadless'
+    goals: 'clean install test'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
@@ -149,7 +149,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: '**/TEST-*.xml'
+      testResultsFiles: '$(System.DefaultWorkingDirectory)/**/test-*.xml'
       mergeTestResults: true
 
 - task: PublishBuildArtifacts@1
@@ -160,11 +160,3 @@ steps:
 - script: 'ls -R $(System.DefaultWorkingDirectory)'
   displayName: 'List Working Directory Contents'
   continueOnError: true # Continue even if the ls command fails
-
-- task: PublishBuildArtifacts@1
-  inputs:
-      ArtifactName: 'Maven-Logs'
-      PathToPublish: '$(System.DefaultWorkingDirectory)'
-      publishLocation: 'Container'
-  condition: succeededOrFailed()
-
