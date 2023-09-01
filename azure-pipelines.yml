@@ -66,15 +66,15 @@ pool:
 
 steps:
 
-- script: |
-    # Install Xvfb
-    sudo apt-get install xvfb
+# - script: |
+#     # Install Xvfb
+#     sudo apt-get install xvfb
 
-    # Start Xvfb on display :99
-    Xvfb :99 -ac &
+#     # Start Xvfb on display :99
+#     Xvfb :99 -ac &
 
-    # Set the DISPLAY environment variable
-    export DISPLAY=:99
+#     # Set the DISPLAY environment variable
+#     export DISPLAY=:99
     
 - task: Maven@3
   inputs:
@@ -85,11 +85,11 @@ steps:
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    # testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/TEST-*.xml'
     
-- script: 'mvn test'
-  displayName: 'Run TestNG tests'
-  workingDirectory: '$(System.DefaultWorkingDirectory)'
+# - script: 'mvn test'
+#   displayName: 'Run TestNG tests'
+#   workingDirectory: '$(System.DefaultWorkingDirectory)'
   
 - task: PublishTestResults@2
   inputs:
@@ -101,10 +101,6 @@ steps:
   inputs:
       ArtifactName: 'Extent-Reports'
       PathToPublish: './target/Extent-Reports/'
-
-- script: 'ls -R $(System.DefaultWorkingDirectory)'
-  displayName: 'List Working Directory Contents'
-  continueOnError: true # Continue even if the ls command fails
 
 - task: PublishBuildArtifacts@1
   inputs:
