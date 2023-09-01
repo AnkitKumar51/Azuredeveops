@@ -66,15 +66,15 @@ pool:
 
 steps:
 
-# - script: |
-#     # Install Xvfb
-#     sudo apt-get install xvfb
+- script: |
+    # Install Xvfb
+    sudo apt-get install xvfb
 
-#     # Start Xvfb on display :99
-#     Xvfb :99 -ac &
+    # Start Xvfb on display :99
+    Xvfb :99 -ac &
 
-#     # Set the DISPLAY environment variable
-#     export DISPLAY=:99
+    # Set the DISPLAY environment variable
+    export DISPLAY=:99
     
 - task: Maven@3
   inputs:
@@ -90,7 +90,8 @@ steps:
 # - script: 'mvn test'
 #   displayName: 'Run TestNG tests'
 #   workingDirectory: '$(System.DefaultWorkingDirectory)'
-  
+- script: 'mvn clean test -DsuiteXmlFile=testng.xml' # Replace 'testng.xml' with your TestNG XML file name
+  displayName: 'Run Selenium tests with Maven and TestNG'
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
