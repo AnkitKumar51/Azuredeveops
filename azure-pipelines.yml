@@ -131,15 +131,6 @@ pool:
   vmImage: windows-2022
 
 steps:
-- script: |
-    # Install Xvfb
-    sudo apt-get install xvfb
-
-    # Start Xvfb on display :99
-    Xvfb :99 -ac &
-
-    # Set the DISPLAY environment variable
-    export DISPLAY=:99
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
