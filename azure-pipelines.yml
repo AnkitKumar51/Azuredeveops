@@ -131,7 +131,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
 - script: |
     # Install Xvfb
     sudo apt-get install xvfb
@@ -141,21 +140,20 @@ steps:
 
     # Set the DISPLAY environment variable
     export DISPLAY=:99
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'package'
+    mavenOptions: '-Xmx3072m -Dheadless'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.17'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: $(System.DefaultWorkingDirectory)/**/test-*.xml
 
-    - task: Maven@3
-      inputs:
-        mavenPomFile: 'pom.xml'
-        goals: 'package'
-        mavenOptions: '-Xmx3072m -Dheadless'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.17'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: true
-        testResultsFiles: $(System.DefaultWorkingDirectory)/**/TEST-*.xml
-
-    - script: 'mvn test'
-      displayName: 'Run TestNG tests'
-      workingDirectory: '$(System.DefaultWorkingDirectory)'
+- script: 'mvn test'
+  displayName: 'Run TestNG tests'
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
   
 - task: PublishTestResults@2
   inputs:
