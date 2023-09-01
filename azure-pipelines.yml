@@ -62,7 +62,7 @@
 
 # main
 pool:
-  vmImage: windows-latest
+  vmImage: ubuntu-latest
 
 steps:
 
@@ -85,7 +85,7 @@ steps:
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
 
 
 - task: PublishTestResults@2
@@ -105,4 +105,3 @@ steps:
       PathToPublish: '$(System.DefaultWorkingDirectory)'
       publishLocation: 'Container'
   condition: succeededOrFailed()
-
