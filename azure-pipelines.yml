@@ -60,21 +60,21 @@
 #       PathToPublish: './target/Extent-Reports/'
 
 
-# main
-pool:
-  vmImage: ubuntu-latest
+# # main
+# pool:
+#   vmImage: ubuntu-latest
 
-steps:
+# steps:
 
-- script: |
-    # Install Xvfb
-    sudo apt-get install xvfb
+# - script: |
+#     # Install Xvfb
+#     sudo apt-get install xvfb
 
-    # Start Xvfb on display :99
-    Xvfb :99 -ac &
+#     # Start Xvfb on display :99
+#     Xvfb :99 -ac &
 
-    # Set the DISPLAY environment variable
-    export DISPLAY=:99
+#     # Set the DISPLAY environment variable
+#     export DISPLAY=:99
 
 # - task: Maven@3
 #   inputs:
@@ -88,23 +88,67 @@ steps:
 #     checkStyleRunAnalysis: true
 #     testResultsFiles: '**/surefire-reports/TEST-*.xml'
 
-- task: Maven@4
+# - task: Maven@4
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.17'
+#     mavenVersionOption: 'Default'
+#     mavenAuthenticateFeed: false
+#     effectivePomSkip: false
+#     sonarQubeRunAnalysis: false
+#     checkStyleRunAnalysis: true
+
+# - task: PublishTestResults@2
+#   inputs:
+#       testResultsFormat: 'JUnit'
+#       testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#       mergeTestResults: true
+
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#       ArtifactName: 'Extent-Reports'
+#       PathToPublish: './target/Extent-Reports/'
+
+# - task: Maven@4
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.17'
+#     mavenVersionOption: 'Default'
+#     mavenAuthenticateFeed: false
+#     effectivePomSkip: false
+#     sonarQubeRunAnalysis: false
+#     checkStyleRunAnalysis: true
+
+
+# main
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'install'
+    mavenOptions: '-Xmx3072m -Dheadless'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-    checkStyleRunAnalysis: true
-
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    
+- script: 'mvn test'
+  displayName: 'Run TestNG tests'
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
+  
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testResultsFiles: '**/TEST-*.xml'
       mergeTestResults: true
 
 - task: PublishBuildArtifacts@1
@@ -112,15 +156,14 @@ steps:
       ArtifactName: 'Extent-Reports'
       PathToPublish: './target/Extent-Reports/'
 
-- task: Maven@4
+- script: 'ls -R $(System.DefaultWorkingDirectory)'
+  displayName: 'List Working Directory Contents'
+  continueOnError: true # Continue even if the ls command fails
+
+- task: PublishBuildArtifacts@1
   inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-    checkStyleRunAnalysis: true
+      ArtifactName: 'Maven-Logs'
+      PathToPublish: '$(System.DefaultWorkingDirectory)'
+      publishLocation: 'Container'
+  condition: succeededOrFailed()
+
