@@ -141,7 +141,7 @@ steps:
 
     # Set the DISPLAY environment variable
     export DISPLAY=:99
-    
+
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
