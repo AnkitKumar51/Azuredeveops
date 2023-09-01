@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-01T15:41:20 IST" name="All Tests Suite" finished-at="2023-09-01T15:44:08 IST" duration-ms="168101">
+    <groups>
+    </groups>
+    <test started-at="2023-09-01T15:41:20 IST" name="TealPD Login Logout Tests" finished-at="2023-09-01T15:41:33 IST" duration-ms="13661">
+      <class name="Tests.TC01_LoginPage">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:Tests.TC01_LoginPage@45752059]" started-at="2023-09-01T15:41:20 IST" name="setUp" finished-at="2023-09-01T15:41:28 IST" duration-ms="8074" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="LoginPage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Tests.TC01_LoginPage@45752059]" started-at="2023-09-01T15:41:29 IST" name="LoginPage" data-provider="WebsiteLoginData" finished-at="2023-09-01T15:41:32 IST" duration-ms="3769" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://192.168.1.16:8025/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ankit]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.TC01_LoginPage@45752059]" started-at="2023-09-01T15:41:33 IST" name="tearDown" finished-at="2023-09-01T15:41:33 IST" duration-ms="187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Tests.TC01_LoginPage -->
+    </test> <!-- TealPD Login Logout Tests -->
+    <test started-at="2023-09-01T15:41:33 IST" name="TealPD Logistics Tests" finished-at="2023-09-01T15:42:08 IST" duration-ms="34723">
+      <class name="Tests.TC02_LogisticWareHouseInventoryManagementPage">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:Tests.TC02_LogisticWareHouseInventoryManagementPage@1a677343]" started-at="2023-09-01T15:41:33 IST" name="setUp" finished-at="2023-09-01T15:41:37 IST" duration-ms="3970" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="ManageWareHouse(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Tests.TC02_LogisticWareHouseInventoryManagementPage@1a677343]" started-at="2023-09-01T15:41:38 IST" name="ManageWareHouse" data-provider="WebsiteLoginData" finished-at="2023-09-01T15:42:04 IST" duration-ms="26809" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://192.168.1.16:8025/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ankit]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ManageWareHouse -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.TC02_LogisticWareHouseInventoryManagementPage@1a677343]" started-at="2023-09-01T15:42:07 IST" name="tearDown" finished-at="2023-09-01T15:42:08 IST" duration-ms="1007" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Tests.TC02_LogisticWareHouseInventoryManagementPage -->
+    </test> <!-- TealPD Logistics Tests -->
+    <test started-at="2023-09-01T15:42:08 IST" name="TealPD Contacts Page Tests" finished-at="2023-09-01T15:44:08 IST" duration-ms="119687">
+      <class name="Tests.TC03_ContactsPage">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:Tests.TC03_ContactsPage@198b6731]" started-at="2023-09-01T15:42:08 IST" name="setUp" finished-at="2023-09-01T15:42:11 IST" duration-ms="3229" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="ContactsPage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Tests.TC03_ContactsPage@198b6731]" started-at="2023-09-01T15:42:12 IST" name="ContactsPage" data-provider="WebsiteLoginData" finished-at="2023-09-01T15:44:07 IST" duration-ms="115111" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://192.168.1.16:8025/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ankit]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ContactsPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.TC03_ContactsPage@198b6731]" started-at="2023-09-01T15:44:07 IST" name="tearDown" finished-at="2023-09-01T15:44:08 IST" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Tests.TC03_ContactsPage -->
+    </test> <!-- TealPD Contacts Page Tests -->
+  </suite> <!-- All Tests Suite -->
+</testng-results>
