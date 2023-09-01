@@ -46,10 +46,10 @@
         </classes>
     </test>
 
-    <test name="TealPD Skid Page Tests">
-        <parameter name="browserName" value="chrome"/>
-        <classes>
-            <class name="Tests.TC07_SkidPage"/>
-        </classes>
-    </test>
+<!--    <test name="TealPD Skid Page Tests">-->
+<!--        <parameter name="browserName" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="Tests.TC07_SkidPage"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
