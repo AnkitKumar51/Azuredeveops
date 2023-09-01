@@ -135,12 +135,12 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'clean install test'
-    mavenOptions: '-Xmx3072m'
+    mavenOptions: '-Xmx3072m -Dheadless'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: $(System.DefaultWorkingDirectory)/**/test-*.xml
+    testResultsFiles: $(System.DefaultWorkingDirectory)/**/TEST-*.xml
 
 - script: 'mvn test'
   displayName: 'Run TestNG tests'
@@ -149,7 +149,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: '**/test-*.xml'
+      testResultsFiles: '**/TEST-*.xml'
       mergeTestResults: true
 
 - task: PublishBuildArtifacts@1
@@ -160,3 +160,11 @@ steps:
 - script: 'ls -R $(System.DefaultWorkingDirectory)'
   displayName: 'List Working Directory Contents'
   continueOnError: true # Continue even if the ls command fails
+
+- task: PublishBuildArtifacts@1
+  inputs:
+      ArtifactName: 'Maven-Logs'
+      PathToPublish: '$(System.DefaultWorkingDirectory)'
+      publishLocation: 'Container'
+  condition: succeededOrFailed()
+
