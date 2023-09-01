@@ -128,7 +128,7 @@
 
 # main
 pool:
-  vmImage: ubuntu-latest
+  
 
 steps:
 - script: |
