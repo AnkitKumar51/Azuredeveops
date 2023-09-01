@@ -1,6 +1,34 @@
-trigger:
-- main
+# trigger:
+# - main
 
+# pool:
+#   vmImage: ubuntu-latest
+
+# steps:
+# - task: Maven@3
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     goals: 'install'
+#     mavenOptions: '-Xmx3072m -Dheadless'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.17'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/TEST-*.xml'
+    
+# - task: PublishTestResults@2
+#   inputs:
+#       testResultsFormat: 'JUnit'
+#       testResultsFiles: '**/TEST-*.xml'
+#       mergeTestResults: true
+
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#       ArtifactName: 'Extent-Reports'
+#       PathToPublish: './target/Extent-Reports/'
+
+
+# main
 pool:
   vmImage: ubuntu-latest
 
@@ -22,8 +50,11 @@ steps:
       testResultsFiles: '**/TEST-*.xml'
       mergeTestResults: true
 
+- script: 'mvn test'
+  displayName: 'Run TestNG tests'
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
       ArtifactName: 'Extent-Reports'
       PathToPublish: './target/Extent-Reports/'
-
