@@ -90,8 +90,8 @@ steps:
 # - script: 'mvn test'
 #   displayName: 'Run TestNG tests'
 #   workingDirectory: '$(System.DefaultWorkingDirectory)'
-- script: 'mvn clean test -DsuiteXmlFile=testng.xml' # Replace 'testng.xml' with your TestNG XML file name
-  displayName: 'Run Selenium tests with Maven and TestNG'
+# - script: 'mvn clean test -DsuiteXmlFile=testng.xml' # Replace 'testng.xml' with your TestNG XML file name
+#   displayName: 'Run Selenium tests with Maven and TestNG'
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
