@@ -43,16 +43,16 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    
+
+- script: 'mvn test'
+  displayName: 'Run TestNG tests'
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
+
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
       testResultsFiles: '**/TEST-*.xml'
       mergeTestResults: true
-
-- script: 'mvn test'
-  displayName: 'Run TestNG tests'
-  workingDirectory: '$(System.DefaultWorkingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
