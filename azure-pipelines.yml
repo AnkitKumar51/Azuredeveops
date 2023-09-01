@@ -127,7 +127,8 @@
 
 
 # main
-  
+pool:
+  vmImage: windows-2022
 
 steps:
 - script: |
