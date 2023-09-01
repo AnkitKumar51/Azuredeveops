@@ -140,7 +140,7 @@ steps:
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: $(System.DefaultWorkingDirectory)/**/TEST-*.xml
+    testResultsFiles: '**/TEST-*.xml'
 
 - script: 'mvn test'
   displayName: 'Run TestNG tests'
@@ -155,7 +155,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
       ArtifactName: 'Extent-Reports'
-      PathToPublish: './target/Extent-Reports/'
+      PathToPublish: './target/Extent-Reports'
 
 - script: 'ls -R $(System.DefaultWorkingDirectory)'
   displayName: 'List Working Directory Contents'
