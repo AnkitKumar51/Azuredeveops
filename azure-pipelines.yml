@@ -135,7 +135,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'clean install test'
-    mavenOptions: '-Xmx3072m -Dheadless'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
