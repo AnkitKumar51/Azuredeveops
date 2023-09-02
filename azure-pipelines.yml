@@ -134,17 +134,17 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'package'
-    mavenOptions: '-Xmx3072m -Dheadless'
+    goals: 'clean install test'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: $(System.DefaultWorkingDirectory)/**/test-*.xml
+    testResultsFiles: '**/TEST-*.xml'
 
-- script: 'mvn test'
-  displayName: 'Run TestNG tests'
-  workingDirectory: '$(System.DefaultWorkingDirectory)'
+# - script: 'mvn test'
+#   displayName: 'Run TestNG tests'
+#   workingDirectory: '$(System.DefaultWorkingDirectory)'
   
 - task: PublishTestResults@2
   inputs:
@@ -152,10 +152,10 @@ steps:
       testResultsFiles: '**/TEST-*.xml'
       mergeTestResults: true
 
-- task: PublishBuildArtifacts@1
-  inputs:
-      ArtifactName: 'Extent-Reports'
-      PathToPublish: './target/Extent-Reports/'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#       ArtifactName: 'Extent-Reports'
+#       PathToPublish: './target/Extent-Reports'
 
 - script: 'ls -R $(System.DefaultWorkingDirectory)'
   displayName: 'List Working Directory Contents'
