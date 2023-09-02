@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,7 +37,7 @@ public class AddContactsPage {
     @FindBy(xpath = "//input[@id='contentPlaceHolder_contactadd_BtnFullForm']")
     private WebElement submit;
 
-    @FindBy(xpath = "(//input[@name='ctl00$contentPlaceHolder$RadioButtonList1'])[2]")
+    @FindBy(xpath = "(//input[@name='ctl00$contentPlaceHolder$RadioButtonList1'])[1]")
     private WebElement specificStatus;
 
     @FindBy(xpath = "(//input[@id='contentPlaceHolder_chkProjects_0'])[1]")
@@ -67,8 +68,14 @@ public class AddContactsPage {
         Select se = new Select(selectCategory);
         se.selectByVisibleText("Design, Dev. & Const.");
 
-        Select select = new Select(selectOrganisation);
-        select.selectByVisibleText("Crowne Partners");
+//        Select select = new Select(selectOrganisation);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        selectOrganisation.click();
+        driver.findElement(By.xpath("//*[@id=\"contentPlaceHolder_contactadd_ddlCompany\"]/option[3]")).click();
     }
 
     public void addDetails(String name, String title, String phoneMain, String email) {
@@ -80,6 +87,11 @@ public class AddContactsPage {
     }
 
     public void contactEntry() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         specificStatus.click();
         associatedWith.click();
 //        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

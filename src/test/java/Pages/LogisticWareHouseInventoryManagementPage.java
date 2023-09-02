@@ -27,19 +27,19 @@ public class LogisticWareHouseInventoryManagementPage {
     @FindBy(xpath = "//a[contains(text(),'Manage Whs Inventory')]")
     private WebElement manageWhsInventory;
 
-    @FindBy(xpath = "//*[@id='CurrentInventory']/tbody/tr[1]/td[6]/a[1]")
+    @FindBy(xpath = "(//*[@id=\"CurrentInventory\"]/tbody/tr/td[6]/a)[1]")
     private WebElement pushItem;
 
     @FindBy(xpath = "(//input[@type='number'])[1]")
     private WebElement addNumberInCMD;
 
-    @FindBy(xpath = "//*[@id=\"FluidContent_rptInventory_ddlPushTo_0\"]")
+    @FindBy(xpath = "//*[@id=\"FluidContent_rptInventory_ddlPushTo_2\"]")
     private WebElement dropDown;
 
-    @FindBy(xpath = "(//select/option[@value=\"7805\"])[2]")
+    @FindBy(xpath = "//*[@id=\"FluidContent_rptInventory_ddlPushTo_2\"]/option[2]")
     private WebElement selectFromDopDown;
 
-    @FindBy(xpath = "//*[@id='FluidContent_rptInventory_btnPush_0']")
+    @FindBy(xpath = "//*[@id='FluidContent_rptInventory_btnPush_2']")
     private WebElement clickOnPush;
 
     public LogisticWareHouseInventoryManagementPage(WebDriver driver) {
@@ -76,12 +76,17 @@ public class LogisticWareHouseInventoryManagementPage {
     public void actionOnNewWindow() {
         addNumberInCMD.sendKeys("2");
 
-        Select select = new Select(dropDown);
-        select.selectByValue("9128");
-//        dropDown.click();0
-//        selectFromDopDown.click();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, 1200);");
+//        Select select = new Select(dropDown);
+//        try {
+//            Thread.sleep(2);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        select.selectByVisibleText("HOU-T02-1-C-12");
+        dropDown.click();
+        selectFromDopDown.click();
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollTo(0, 1200);");
         clickOnPush.click();
         driver.close();
         driver.switchTo().window(parentWindow);
