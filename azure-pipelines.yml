@@ -152,10 +152,10 @@ steps:
       testResultsFiles: '**/TEST-*.xml'
       mergeTestResults: true
 
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#       ArtifactName: 'Extent-Reports'
-#       PathToPublish: './target/Extent-Reports'
+- task: PublishBuildArtifacts@1
+  inputs:
+      ArtifactName: 'Extent-Reports'
+      PathToPublish: './target/Extent-Reports'
 
 - script: 'ls -R $(System.DefaultWorkingDirectory)'
   displayName: 'List Working Directory Contents'
