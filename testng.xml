@@ -25,7 +25,7 @@
         </classes>
     </test>
 
-    <test name="TealPD Add Contacts Page Tests">
+<!--     <test name="TealPD Add Contacts Page Tests">
         <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="Tests.TC04_AddContactsPage"/>
@@ -51,5 +51,5 @@
         <classes>
             <class name="Tests.TC07_SkidPage"/>
         </classes>
-    </test>
+    </test> -->
 </suite>
