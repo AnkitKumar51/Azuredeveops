@@ -139,13 +139,9 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
+    publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
-
-# - script: 'mvn test'
-#   displayName: 'Run TestNG tests'
-#   workingDirectory: '$(System.DefaultWorkingDirectory)'
-  
+ 
 - task: PublishTestResults@2
   inputs:
       testResultsFormat: 'JUnit'
